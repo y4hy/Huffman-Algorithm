@@ -1,2 +1,2 @@
 # Huffman-Algorithm
-A compression tool that bases on Huffman's tree algorithm.
+A compression tool that based on Huffman's tree algorithm.
