@@ -76,6 +76,22 @@ void Decode(string fname, string output_file){
         codes[line.substr(2)] = line[0];
     }
 
+    string buffer = "";
+    char c;
+    while (file.get(c)) {
+        for (int i = 0; i < 8; i++) {
+            buffer += (c & 0x80) ? "1" : "0";
+            c = c << 1;
+        }
+
+        for (auto it = codes.begin(); it != codes.end(); it++) {
+            if (buffer.find(it->first) == 0) {
+                output.put(it->second);
+                buffer = buffer.substr(it->first.length());
+            }
+        }
+    }
+
     file.close();
     output.close();
 }
