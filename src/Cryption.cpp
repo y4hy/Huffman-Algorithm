@@ -67,12 +67,13 @@ void Decode(string fname, string output_file){
         if (line == "<end>") {
             break;
         }
-        char c = line[0];
-        cout << line.substr(2) << endl;
-    }
 
-    for (const auto& pair : codes) {
-        cout << pair.first << " " << pair.second << endl;
+        if (line == "") {
+            getline(file, line);
+            codes[line.substr(1)] = '\n';
+        }
+        
+        codes[line.substr(2)] = line[0];
     }
 
     file.close();
