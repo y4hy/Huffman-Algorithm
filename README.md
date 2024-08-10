@@ -6,5 +6,5 @@ A compression tool that based on Huffman's tree algorithm.
 - g++ --std=c++11 src/* -o <program_name>
 
 # Usage
-program -e <file> to encode file
-program -d <file> to decode file
+- program -e <file> to encode file
+- program -d <file> to decode file
